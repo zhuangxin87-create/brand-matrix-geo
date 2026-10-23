@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
-# One-command install for brand-matrix-geo into common agent skill dirs.
-# Usage:
-#   curl -fsSL https://raw.githubusercontent.com/<OWNER>/brand-matrix-geo/main/install.sh | bash
-#   bash install.sh [--host claude|cursor|codex|openclaw|agents]
+# Install brand-matrix-geo from a local clone into a host skill directory.
+#
+# install.sh copies skills/brand-matrix-geo from this repository. Run it only
+# after cloning. Piping the raw script (curl …/install.sh | bash) has no
+# SKILL.md beside it and exits.
+#
+# From a clone:
+#   git clone https://github.com/zhuangxin87-create/brand-matrix-geo.git
+#   cd brand-matrix-geo
+#   bash install.sh --host claude
+#
+# Hosts: claude | cursor | codex | openclaw | agents
+#
+# Without a clone, pass the skill name as the second argument:
+#   gh skill install zhuangxin87-create/brand-matrix-geo brand-matrix-geo
+#
+# WorkBuddy: download brand-matrix-geo.zip from the GitHub release
+# (SKILL.md and examples/ at the archive root) and import that zip.
 set -euo pipefail
 HOST="${1:-}"
 if [[ "${HOST}" == "--host" ]]; then HOST="${2:-claude}"; shift 2 || true; fi
@@ -10,10 +24,17 @@ HOST="${HOST:-claude}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || pwd)"
 SRC="$ROOT/skills/brand-matrix-geo"
 if [[ ! -f "$SRC/SKILL.md" ]]; then
-  # installed via curl piped from repo root expectation
-  echo "Run this script from a cloned brand-matrix-geo repo, or:" >&2
-  echo "  gh skill install <owner>/brand-matrix-geo" >&2
-  echo "  npx skills add <owner>/brand-matrix-geo   # if available" >&2
+  echo "install.sh must run inside a cloned brand-matrix-geo repo." >&2
+  echo "It copies skills/brand-matrix-geo/SKILL.md from that clone." >&2
+  echo "curl …/install.sh | bash stops here, because the skill files are not on disk." >&2
+  echo >&2
+  echo "From a clone:" >&2
+  echo "  bash install.sh --host claude" >&2
+  echo >&2
+  echo "Without a clone:" >&2
+  echo "  gh skill install zhuangxin87-create/brand-matrix-geo brand-matrix-geo" >&2
+  echo >&2
+  echo "WorkBuddy: download release asset brand-matrix-geo.zip (SKILL.md at the archive root)." >&2
   exit 1
 fi
 case "$HOST" in
