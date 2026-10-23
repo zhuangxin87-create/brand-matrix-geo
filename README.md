@@ -1,7 +1,7 @@
 # 品牌矩阵GEO | Brand Matrix GEO Skill
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![Release](https://img.shields.io/github/v/release/zhuangxin87-create/brand-matrix-geo)](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/github/v/release/zhuangxin87-create/brand-matrix-geo)](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/tag/v1.0.1)
 [![Stars](https://img.shields.io/github/stars/zhuangxin87-create/brand-matrix-geo)](https://github.com/zhuangxin87-create/brand-matrix-geo/stargazers)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-111)](https://agentskills.io)
 
@@ -13,14 +13,27 @@
 
 ## 快速安装
 
+机器可读的技能名是 `brand-matrix-geo`（Agent Skills：小写字母、数字、连字符）。给人看的名字仍是 **品牌矩阵GEO**。
+
+**(a) GitHub CLI**（第二个参数是技能名）：
+
 ```bash
-gh skill install zhuangxin87-create/brand-matrix-geo
-git clone https://github.com/zhuangxin87-create/brand-matrix-geo.git
+gh skill install zhuangxin87-create/brand-matrix-geo brand-matrix-geo
 ```
 
-WorkBuddy：下载 [brand-matrix-geo.zip](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/download/v1.0.0/brand-matrix-geo.zip)（`SKILL.md` 在压缩包根目录）后导入。发布页：[v1.0.0](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/tag/v1.0.0)。
+**(b) 克隆仓库后再安装。** `install.sh` 只在本仓库克隆目录里可用，因为它要复制旁边的 `skills/brand-matrix-geo/SKILL.md`：
 
-克隆后可用 `bash install.sh --host claude`（或 `cursor` / `codex` / `openclaw` / `agents`）。装好后说：`用品牌矩阵GEO分析「品牌名」`。
+```bash
+git clone https://github.com/zhuangxin87-create/brand-matrix-geo.git
+cd brand-matrix-geo
+bash install.sh --host claude
+```
+
+`--host` 还可选 `cursor`、`codex`、`openclaw`、`agents`。
+
+**(c) WorkBuddy：** 下载 [brand-matrix-geo.zip](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/download/v1.0.1/brand-matrix-geo.zip)（压缩包根目录是 `SKILL.md`，旁边是 `examples/`）后导入。发布页：[v1.0.1](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/tag/v1.0.1)。
+
+装好后说：`用品牌矩阵GEO分析「品牌名」`。
 
 ## 示例产出
 
@@ -53,7 +66,7 @@ WorkBuddy：下载 [brand-matrix-geo.zip](https://github.com/zhuangxin87-create/
 
 **Brand Matrix GEO Skill** turns one brand name into a Generative Engine Optimization pack: an entity record, a content matrix, and an AI visibility plan for AI search.
 
-It is a Claude skill in the Agent Skills format. Install it with `gh skill install zhuangxin87-create/brand-matrix-geo`, `git clone` this repo, or the WorkBuddy ZIP ([brand-matrix-geo.zip](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/download/v1.0.0/brand-matrix-geo.zip), `SKILL.md` at the archive root). It runs in WorkBuddy, Cursor, and Claude Code.
+It is a Claude skill in the Agent Skills format. The machine name is `brand-matrix-geo`; the display title stays 品牌矩阵GEO. Install it one of three ways: `gh skill install zhuangxin87-create/brand-matrix-geo brand-matrix-geo`; clone this repo and run `bash install.sh --host claude` from the clone (`install.sh` needs `skills/brand-matrix-geo/SKILL.md` on disk); or import the WorkBuddy ZIP ([brand-matrix-geo.zip](https://github.com/zhuangxin87-create/brand-matrix-geo/releases/download/v1.0.1/brand-matrix-geo.zip), `SKILL.md` at the archive root). It runs in WorkBuddy, Cursor, and Claude Code.
 
 Default engines include DeepSeek, Doubao (豆包), Kimi, and Yuanbao (元宝). The skill researches public sources only. It does not invent credentials, sales, or rankings, and it does not promise inclusion in any AI answer.
 
